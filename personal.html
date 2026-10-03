@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faiz Azzam | Gen-Z Digital Space</title>
+    
+    <!-- DESAIN ULTRA MODERN ALA GEN Z (CSS) -->
+    <style>
+        :root {
+            --bg-dark: #05050a;
+            --card-dark: #121225;
+            --neon-cyan: #00f0ff;
+            --neon-pink: #ff007f;
+            --text-white: #ffffff;
+            --text-gray: #8a8a9e;
+            --border-neon: linear-gradient(90deg, #00f0ff, #ff007f);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            min-height: 160vh; /* Tinggi ekstra agar efek scroll terasa optimal */
+            padding-bottom: 80px;
+            overflow-x: hidden;
+        }
+
+        /* Elemen Dekorasi Latar Belakang Digital */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+        }
+
+        .neon-orb {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.15);
+            filter: blur(80px);
+            top: -50px;
+            right: -50px;
+            z-index: -1;
+            animation: floatOrb 8s infinite alternate;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-30px, 40px) scale(1.2); background: rgba(255, 0, 127, 0.15); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Kartu Profil Utama Cyberpunk */
+        .profile-container {
+            background: var(--card-dark);
+            border: 2px solid #222244;
+            border-radius: 32px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            border-radius: 34px;
+            background: var(--border-neon);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+        }
+
+        .profile-image-frame {
+            width: 140px;
+            height: 140px;
+            border-radius: 24px;
+            padding: 3px;
+            background: var(--border-neon);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 21px;
+            object-fit: cover;
+            background-color: var(--bg-dark);
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .username {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: lowercase;
+            letter-spacing: -1px;
+            background: var(--border-neon);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-hype {
+            background: #ff007f;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .btn-action {
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+            padding: 10px 24px;
+            font-weight: 700;
+            border-radius: 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-action:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transform: scale(1.03);
+        }
+
+        .stats-box {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .stats-box span strong {
+            color: var(--neon-cyan);
+            font-size: 16px;
+        }
+
+        .bio-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .bio-text {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Pembantasan Area Katalog */
+        .section-divider {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #222244;
+        }
+
+        /* WADAH UTAMA FEED KATALOG KARYA */
+        .feed-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* STRUKTUR KARTU DENGAN SENSOR ANIMASI GULIR */
+        .feed-card {
+            background: var(--card-dark);
+            border: 1px solid #222244;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            
+            /* Status Awal Sebelum Di-scroll */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Class yang akan otomatis disematkan oleh JavaScript saat di-scroll */
+        .feed-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-media {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .feed-card:hover .card-media img {
+            transform: scale(1.04) rotate(0.5deg);
+        }
+
+        .card-info {
+            padding: 30px;
+        }
+
+        .project-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--neon-pink);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+
+        .project-name {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .project-summary {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Responsif Layar Kecil (Handphone) */
+        @media (max-width: 680px) {
+            .profile-container { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .header-meta { justify-content: center; }
+            .stats-box { justify-content: center; }
+            .card-info { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Latar Belakang Kotak Digital -->
+    <div class="grid-bg"></div>
+    <div class="neon-orb"></div>
+
+    <div class="container">
+        
+        <!-- BAGIAN PROFIL UTAMA -->
+        <header class="profile-container">
+            <div class="profile-image-wrapper">
+                <div class="profile-image-frame">
+                    <!--<taruh foto disini>-->
+                    <img src="https://unsplash.com" alt="Faiz Azzam" class="profile-image">
+                </div>
+            </div>
+            
+            <div class="profile-content">
+                <div class="header-meta">
+                    <h2 class="username">faiz.azzam_</h2>
+                    <span class="badge-hype">VERIFIED CREATOR</span>
+                    <button class="btn-action" id="pingBtn">ngobrol bareng</button>
+                </div>
+                
+                <div class="stats-box">
+                    <span><strong>0</strong> Proyek Digital</span>
+                    <span><strong>100%</strong> Kreatif</span>
+                </div>
+                
+                <div class="bio-section">
+                    <h1 class="bio-title">Faiz Azzam</h1>
+                    <p class="bio-text">SALAM KENAL!!!
+namaku faiz, selamat datang di blog pribadi ku.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- TEKS PEMISAH -->
+        <div class="section-divider">MASIH KOSONG, KAPAN KAPAN BALIK LAGI YA!!!</div>
+
+        <!-- DAFTAR FEED KATALOG -->
+        <main class="feed-container">
+            
+            <!-- KATALOG PROYEK 1 -->
+            <div class="feed-card">
+                <div class="card-media">
